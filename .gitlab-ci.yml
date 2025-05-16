@@ -1,0 +1,20 @@
+stages:
+  - test
+  - report
+
+test_app:
+  stage: test
+  image: python:3.10
+  script:
+    - pip install pytest coverage flake8
+    - coverage run -m pytest
+    - coverage report
+    - flake8 .
+
+generate_report:
+  stage: report
+  script:
+    - coverage html
+  artifacts:
+    paths:
+      - htmlcov
