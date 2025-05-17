@@ -13,6 +13,7 @@ test_app:
 
 generate_report:
   stage: report
+  image: python:3.10
   script:
     - coverage html
   artifacts:
