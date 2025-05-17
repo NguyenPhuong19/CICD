@@ -6,16 +6,25 @@ test_app:
   stage: test
   image: python:3.10
   script:
-    - pip install pytest coverage flake8
+    - pip install -r requirements.txt
+    - pip install coverage flake8
     - coverage run -m pytest
     - coverage report
     - flake8 .
+  artifacts:
+    paths:
+      - .coverage
+    expire_in: 1 hour
 
 generate_report:
   stage: report
   image: python:3.10
   script:
+    - pip install coverage
     - coverage html
   artifacts:
     paths:
       - htmlcov
+    expire_in: 1 hour
+  dependencies:
+    - test_app
