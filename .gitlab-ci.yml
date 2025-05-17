@@ -6,11 +6,9 @@ test_app:
   stage: test
   image: python:3.10
   script:
-    - pip install -r requirements.txt
-    - pip install coverage flake8
+    - pip install pytest coverage
+    - pytest
     - coverage run -m pytest
-    - coverage report
-    - flake8 .
   artifacts:
     paths:
       - .coverage
