@@ -1,0 +1,18 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+<div class="container">
+    <h2>📊 Thống kê nhanh</h2>
+    <ul>
+        <li>🧑‍🎓 Tổng số sinh viên: <strong>{{ count }}</strong></li>
+        <li>🏆 Điểm GPA cao nhất: <strong>{{ max_gpa }}</strong></li>
+        <li>📈 GPA trung bình: <strong>{{ avg_gpa }}</strong></li>
+    </ul>
+
+    <h3>📚 Số sinh viên theo chuyên ngành</h3>
+    <ul>
+        {% for major, number in majors.items() %}
+            <li>{{ major }}: {{ number }} sinh viên</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
