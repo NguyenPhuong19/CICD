@@ -46,9 +46,8 @@ def create_app():
     app,
     name='Trang Quản Trị',
     template_mode='bootstrap3',
-    index_view=MyAdminHome(name='Home')
+    index_view=MyAdminHome(name='Home')  # đây là dòng quan trọng bạn đang hỏi
 )
-
 
 
     # Giao diện nâng cao
