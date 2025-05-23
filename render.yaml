@@ -3,4 +3,5 @@ services:
     name: flask-cicd
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn flask_admin_demo:app
+    startCommand: gunicorn app:app
+
